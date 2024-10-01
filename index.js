@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors"
 import path from 'path';
+import { PORT } from "./src/config/config.js";
 import { fileURLToPath } from 'url';
 
 // Obtener el directorio del archivo actual
@@ -51,6 +52,6 @@ servidor.use("/reportesEXCEL2", ReporteAdoptadoEXCELrouter);
 // / Middleware para servir archivos estáticos desde la carpeta 'uploads'
 servidor.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-servidor.listen(8366, () => {
-	console.log("Funcionando en el puerto 8366 ;)");
+servidor.listen(PORT, () => {
+	console.log("Funcionando en el puerto "+ PORT +" ;)");
 });
